@@ -108,45 +108,7 @@ int main(int argc,char ** argv)
   l_output_h_file.close();
   l_output_text_file.close();
   
-  exit(-1);
-#ifdef TOTO
-  vector<string> l_picture_list;
-  l_picture_list.push_back("old/soleil_16.bmp");
-  l_picture_list.push_back("old/soleil_24bits.bmp");
-  l_picture_list.push_back("old/soleil_256.bmp");
-  l_picture_list.push_back("old/soleil_mono.bmp");
-
-  vector<string>::const_iterator l_iter = l_picture_list.begin();
-  vector<string>::const_iterator l_iter_end = l_picture_list.end();
-  while(l_iter != l_iter_end)
-    {
-      cout << "---------------------------------------" << endl ;
-      cout << "File : \"" << *l_iter << "\"" << endl ;
-      my_bmp l_bmp(*l_iter);
-      l_bmp.display_info();
-      std::cout << "Pixel(10,10)=";
-      l_bmp.get_pixel_color(10,10).display();
-      std::cout << std::endl ;
-      ++l_iter;
-    }
-  
-  uint32_t l_width = 4096;
-  uint32_t l_height = 4096;
-  my_bmp l_test_bmp(l_width,l_height,1);
-  l_test_bmp.display_info();
-  for(uint32_t l_x = 0 ; l_x < l_width;++l_x)
-    {
-      for(uint32_t l_y = 0 ; l_y < l_height;++l_y)
-	{
-	  uint32_t l_index = l_x + l_y * l_width;
-	  l_test_bmp.set_pixel_color(l_x,l_y,my_color_alpha(l_index & 0xFF,(l_index & 0xFF00)>>8,(l_index & 0xFF0000)>>16,0));
-	}
-    }
-  l_test_bmp.save("test_24b.bmp");
-
-  cout << "CHECK !!!" << endl ;
-  my_bmp l_check_bmp("test_24b.bmp");
-  l_check_bmp.display_info();
-  #endif
+  return 0;
 
 }
+//EOF
